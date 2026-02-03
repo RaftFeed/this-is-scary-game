@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgag6is8jlers"]
+
+[ext_resource type="Script" uid="uid://bkk5yxbfdcado" path="res://this-is-scary-game/Level_1_Banana/father.gd" id="1_ouscw"]
+[ext_resource type="Texture2D" uid="uid://qcmsxdcyd07b" path="res://icon.svg" id="1_v7ymb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6hbr"]
+size = Vector2(121, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gnvp"]
+atlas = ExtResource("1_v7ymb")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qtju1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gnvp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Father" type="CharacterBody2D"]
+script = ExtResource("1_ouscw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -0.5)
+shape = SubResource("RectangleShape2D_a6hbr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qtju1")
+animation = &"idle"
